@@ -33,18 +33,18 @@
   tasks:
 
     # Why do we need this ?
-    - name: "Install python-dev package"
-      become: true
-      dnf:
-        name:  'python-devel'
-        state: present
+#    - name: "Install python-dev package"
+#      become: true
+#      dnf:
+#        name:  'python-devel'
+#        state: present
 
     # Why do we need this ?
-    - name: "Install libevent-devel package"
-      become: true
-      dnf:
-        name:  'libevent-devel'
-        state: present
+#    - name: "Install libevent-devel package"
+#      become: true
+#      dnf:
+#        name:  'libevent-devel'
+#        state: present
 
     # Why do we need this ?
     - name: "Install gcc package"
@@ -61,9 +61,9 @@
         state: present
 
     # This is already done in 23-install-python
-    - name: "Set Python alternative to Python3"
-      become: true
-      command: update-alternatives --install /usr/bin/python python /usr/bin/python3 10
+#    - name: "Set Python alternative to Python3"
+#      become: true
+#      command: update-alternatives --install /usr/bin/python python /usr/bin/python3 10
 
     # This is already done in 23-install-python
     - name: "Create [/etc/profile.d/python.sh]"

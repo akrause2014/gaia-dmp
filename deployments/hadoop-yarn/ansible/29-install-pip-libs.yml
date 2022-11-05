@@ -31,37 +31,50 @@
   tasks:
 
     # Why do we need this ?
-    - name: "Install python-dev package"
-      become: true
-      dnf:
-        name:  'python-devel'
-        state: present
+#    - name: "Install python-dev package"
+#      become: true
+#      dnf:
+#        name:  'python-devel'
+#        state: present
 
     # Why do we need this ?
-    - name: "Install libevent-devel package"
-      become: true
-      dnf:
-        name:  'libevent-devel'
-        state: present
+#    - name: "Install libevent-devel package"
+#      become: true
+#      dnf:
+#        name:  'libevent-devel'
+#        state: present
 
     # Why do we need this ?
     - name: "Install gcc package"
       become: true
       dnf:
-        name:  'gcc'
+        name:  'gcc-c++'
         state: present
 
     # Why do we need this ?
     - name: "Install Python3-devel package"
       become: true
       dnf:
-        name:  'python3-devel'
+        name:  'python39-devel'
         state: present
 
     - name: "Install required system libraries"
       become: true
       dnf:
-        name: libtiff-devel,libjpeg-devel,libzip-devel,freetype-devel,lcms2-devel,libwebp-devel,tcl-devel,tk-devel,libffi,libffi-devel
+        name: libtiff-devel,libjpeg-devel,libzip-devel,freetype-devel,libwebp-devel,tcl-devel,tk-devel,libffi,libffi-devel
+        state: present
+
+    - name: "Install required system libraries"
+      become: true
+      dnf:
+        enablerepo: powertools
+        name: lcms2-devel
+        state: present
+
+    - name: "Install git package"
+      become: true
+      dnf:
+        name:  'git'
         state: present
 
     - name: Copy pip requirements file into tmp
@@ -73,5 +86,6 @@
     - name: Install the required Python packages
       become: true
       pip:
+        executable: pip3.9
         requirements: "/tmp/requirements.txt"
 

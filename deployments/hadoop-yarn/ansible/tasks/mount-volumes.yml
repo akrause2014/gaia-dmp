@@ -25,7 +25,7 @@
   filesystem:
     fstype: "{{disc.format}}"
     dev:    "/dev/{{disc.devname}}"
-  when: (disc.format == 'btrfs')
+#  when: (disc.format == 'btrfs')
 
 - name: "Create mount path [{{disc.mntpath}}]"
   become: true

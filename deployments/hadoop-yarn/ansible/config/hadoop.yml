@@ -27,11 +27,11 @@ hdhome: "/opt/hadoop"
 
 hdconf: "{{hdhome}}/etc/hadoop"
 hdhost: "master01"
-hduser: "fedora"
+hduser: "rocky"
 
 # HDFS vars
 hdfsconf: "/var/hdfs/conf"
-hdfsuser: "fedora"
+hdfsuser: "rocky"
 hdfsuserhome: "/albert"
 hdfsusergroup: "supergroup"
 

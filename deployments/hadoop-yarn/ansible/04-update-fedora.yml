@@ -41,12 +41,19 @@
         state: present
         update_cache: true
 
+    - name: "Install EPEL"
+      become: true
+      dnf:
+        name:  'epel-release'
+        state: present
+        update_cache: true
+
     - name: "Install core tools"
       become: true
       dnf:
         name:
           - 'jq'
-          - 'jc'
+#          - 'jc'
           - 'atop'
           - 'htop'
           - 'wget'

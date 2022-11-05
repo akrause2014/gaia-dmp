@@ -23,15 +23,15 @@
 # Zeppelin vars
 zepvers: "0.10.0"
 zepname: "zeppelin-0.10.0-bin-all"
-zepbase: "/home/fedora"
-zephome: "/home/fedora/zeppelin"
+zepbase: "/home/rocky"
+zephome: "/home/rocky/zeppelin"
 zephost: "zeppelin"
-zepuser: "fedora"
+zepuser: "rocky"
 zepmavendest: "/var/local/zeppelin/maven"
 zepusersgroup: "zeppelinusers"
 
-zepuserhome: "/home/fedora"
-zepusername: "fedora"
+zepuserhome: "/home/rocky"
+zepusername: "rocky"
 
 
 

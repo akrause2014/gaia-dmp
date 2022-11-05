@@ -118,13 +118,13 @@
 # Root password is not needed if connecting via Unix socket
 # https://mariadb.com/kb/en/authentication-from-mariadb-104/
 
-   - name: "Create MariaDB config for fedora"
+   - name: "Create MariaDB config for {{dbuser}}"
      become: true
      blockinfile:
-       dest:  '/home/fedora/.my.cnf'
+       dest:  "/home/{{dbuser}}/.my.cnf"
        state: present
-       owner: 'fedora'
-       group: 'fedora'
+       owner: "{{dbuser}}"
+       group: "{{dbuser}}"
        mode:  'u=rw,g=r,o=r'
        create: true
        insertafter: 'EOF'

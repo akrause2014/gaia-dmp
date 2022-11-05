@@ -33,7 +33,7 @@
     - name: "Install Python3"
       become: true
       dnf:
-        name:  'python3'
+        name:  'python39'
         state: present
 
     - name: "Make Python3 the default"

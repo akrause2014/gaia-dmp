@@ -171,17 +171,17 @@
 # -----------------------------------------------------
 # Create our CephFS router.
 
-    "${treetop:?}/hadoop-yarn/bin/cephfs-router.sh" \
-        "${cloudname:?}" \
-        "${deployname:?}"
+#    "${treetop:?}/hadoop-yarn/bin/cephfs-router.sh" \
+#        "${cloudname:?}" \
+#        "${deployname:?}"
 
 
 # -----------------------------------------------------
 # Create our data shares.
 
-    "${treetop:?}/hadoop-yarn/bin/mount-data-shares.sh" \
-        "${cloudname:?}" \
-        "${deployconf:?}"
+#    "${treetop:?}/hadoop-yarn/bin/mount-data-shares.sh" \
+#        "${cloudname:?}" \
+#        "${deployconf:?}"
 
 
 # -----------------------------------------------------
