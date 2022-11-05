@@ -79,4 +79,3 @@
             - wget
           state: present
       when: ansible_distribution == "Ubuntu"
-

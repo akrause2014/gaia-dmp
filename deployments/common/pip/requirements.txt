@@ -7,7 +7,7 @@ Cython==0.29.23
 protobuf==3.16.0
 pandas==1.2.4
 healpy==1.14.0
-astropy==4.3.1
+astropy==5.1.1
 astroquery==0.4.1
 scikit-learn==0.24.2
 joblib==1.1.0
