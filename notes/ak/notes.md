@@ -37,10 +37,12 @@ This deletes all servers, networks, routers, security groups, ...
 /deployments/hadoop-yarn/bin/create-all.sh $cloudname $configname
 ```
 
-## Fix nginx
+## Fix nginx on the zeppelin instance
 
 Remove the `server` section from `/etc/nginx/nginx.conf` so that it picks up the config in `/etc/nginx/conf.d/zeppelin.conf` instead.
 ```
+ssh zeppelin
+sudo vi /etc/nginx/nginx.conf
 sudo systemctl restart nginx
 ```
 
