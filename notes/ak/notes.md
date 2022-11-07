@@ -37,6 +37,13 @@ This deletes all servers, networks, routers, security groups, ...
 /deployments/hadoop-yarn/bin/create-all.sh $cloudname $configname
 ```
 
+## Fix nginx
+
+Remove the `server` section from `/etc/nginx/nginx.conf` so that it picks up the config in `/etc/nginx/conf.d/zeppelin.conf` instead.
+```
+sudo systemctl restart nginx
+```
+
 ## Create test user
 ```
 source /deployments/zeppelin/bin/create-user-tools.sh
