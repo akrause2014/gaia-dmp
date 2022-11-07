@@ -22,7 +22,7 @@ podman run --rm --tty --interactive \
     --volume "${SSH_AUTH_SOCK:?}:/mnt/ssh_auth_sock:rw,z" \
     --env "cloudname=iris-gaia" --env "configname=zeppelin-eidf" \
     ghcr.io/wfau/atolmis/ansible-client:2022.07.25 bash
-
+```
 ## Delete all in Openstack project
 
 Run
