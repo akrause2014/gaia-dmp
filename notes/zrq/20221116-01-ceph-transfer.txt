@@ -52,8 +52,15 @@
         hostname
         '
 
+<<<<<<< HEAD
     >   Wed 16 Nov 12:29:32 UTC 2022
     >   iris-gaia-blue-20221013-zeppelin
+=======
+--START--
+Wed 16 Nov 12:29:32 UTC 2022
+iris-gaia-blue-20221013-zeppelin
+--END--
+>>>>>>> a3254bb (Fix deprecated DNS name)
 
 
 # -----------------------------------------------------
@@ -100,6 +107,7 @@
     time \
         source /deployments/hadoop-yarn/bin/deploy.sh
 
+<<<<<<< HEAD
     >   aglais:
     >     status:
     >       deployment:
@@ -623,6 +631,12 @@ EOF
     >     },
     >     ....
     >   ]
+=======
+--START--
+....
+....
+--END--
+>>>>>>> a3254bb (Fix deprecated DNS name)
 
 
 
