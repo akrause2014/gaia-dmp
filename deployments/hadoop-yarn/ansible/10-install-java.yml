@@ -35,6 +35,14 @@
       dnf:
         name:  'java-1.8.0-openjdk-headless'
         state: present
+      when: ansible_distribution != 'Ubuntu'
+
+    - name: "Install Java"
+      become: true
+      apt:
+        name:  'openjdk-8-jdk'
+        state: present
+      when: ansible_distribution == 'Ubuntu'
 
     - name: "Create [/etc/profile.d/java.sh]"
       become: true

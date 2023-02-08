@@ -99,9 +99,9 @@
        state: "present"
 
    - name: "Install MariaDB server"
-     dnf:
+     package:
        name:  "mariadb-server"
-       state: "installed"
+       state: present
 
    - name: "Install PyMySQL"
      pip:

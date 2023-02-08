@@ -52,13 +52,22 @@
       dnf:
         name:  'gcc'
         state: present
+      when: ansible_distribution != 'Ubuntu'
 
     # Why do we need this ?
-    - name: "Install Python3-devel package"
+#    - name: "Install Python3-devel package"
+#      become: true
+#      dnf:
+#        name:  'python38-devel'
+#        state: present
+#      when: ansible_distribution != 'Ubuntu'
+
+    - name: "Install Python3-dev package"
       become: true
-      dnf:
-        name:  'python3-devel'
+      apt:
+        name:  'python3.8-dev'
         state: present
+      when: ansible_distribution == 'Ubuntu'
 
     # This is already done in 23-install-python
 #    - name: "Set Python alternative to Python3"

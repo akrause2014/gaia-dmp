@@ -24,7 +24,7 @@
 ---
 - name: "Install Python"
   hosts: masters:workers:zeppelin
-  gather_facts: false
+  gather_facts: true
   vars_files:
     - config/ansible.yml
     - /opt/aglais/aglais-status.yml
@@ -33,15 +33,92 @@
     - name: "Install Python3"
       become: true
       dnf:
-        name:  'python39'
+        name:  'python38'
         state: present
+      when: ansible_distribution != 'Ubuntu'
+
+    - name: "Install required libs on Rocky"
+      become: true
+      block:
+        - name: Install xz
+          dnf:
+            name: xz
+            state: present
+        - name: Install the 'Development tools' package group
+          ansible.builtin.dnf:
+            name: '@Development tools'
+            state: present
+        - name: "Install required system libraries"
+          become: true
+          dnf:
+            name: libtiff-devel,libjpeg-devel,libzip-devel,freetype-devel,libwebp-devel,tcl-devel,tk-devel,libffi,libffi-devel
+            state: present
+        - name: "Install required system libraries"
+          become: true
+          dnf:
+            enablerepo: powertools
+            name: lcms2-devel
+            state: present
+
+#        - name: "Download python"
+#          ansible.builtin.unarchive:
+#            remote_src: yes
+#            src: https://www.python.org/ftp/python/3.7.16/Python-3.7.16.tar.xz
+#            dest: /tmp/
+#        - name: "Compile python (configure)"
+#          ansible.builtin.shell:
+#            chdir: /tmp/Python-3.7.16
+#            cmd: "./configure --enable-optimizations --with-ssl"
+#        - name: "Compile python (make)"
+#          ansible.builtin.shell:
+#            chdir: /tmp/Python-3.7.16
+#            cmd: "make -j 2"
+#        - name: "Compile python (make altinstall)"
+#          ansible.builtin.shell:
+#            chdir: /tmp/Python-3.7.16
+#            cmd: "make altinstall"
+
+      when: ansible_distribution == 'Rocky'
+
+    - name: 'Install Python3 on Ubuntu'
+      become: true
+      block:
+        - name: Add repo
+          ansible.builtin.apt_repository:
+            repo: "ppa:deadsnakes/ppa"
+            state: present
+        - name: Install Python
+          apt:
+            update_cache: true
+            name: python3.7
+            state: present
+        - name: "Make Python3.7 the default"
+          become: true
+          alternatives:
+            name: 'python'
+            path: '/usr/bin/python3.7'
+      when: ansible_distribution == 'Ubuntu'
 
     - name: "Make Python3 the default"
       become: true
       alternatives:
         name: 'python'
         link: '/usr/bin/python'
-        path: '/usr/bin/python3'
+        path: '/usr/bin/python3.7'
+      when: ansible_distribution != 'Rocky'
+
+    - name: "Make Python3 the default on Rocky"
+      become: true
+      block:
+        - alternatives:
+            name: 'python3'
+            link: '/usr/bin/python3'
+            path: '/usr/bin/python3.8'
+        - alternatives:
+            name: 'python'
+            link: '/usr/bin/unversioned-python'
+            path: '/usr/bin/python3.8'
+      when: ansible_distribution == 'Rocky'
 
     - name: "Create [/etc/profile.d/python3.sh]"
       become: true
@@ -57,3 +134,4 @@
         block: |
           alias python=python3
           alias pip=pip3
+      when: ansible_distribution != 'Ubuntu'

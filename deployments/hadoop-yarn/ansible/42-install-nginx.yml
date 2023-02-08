@@ -29,16 +29,26 @@
   vars:
     nginx_config_dir: "/etc/nginx/conf.d/"
   tasks:
-    - name: "Allow SELinux httpd to make network connections."
-      become: true
-      command: "setsebool -P httpd_can_network_connect 1"
+    - block:
+      - name: "Allow SELinux httpd to make network connections."
+        become: true
+        command: "setsebool -P httpd_can_network_connect 1"
 
-    - name: "Install NGINX using Yum"
+      - name: "Install NGINX using Yum"
+        become: true
+        yum:
+          name: nginx
+          update_cache: yes
+          state: present
+      when: ansible_distribution != "Ubuntu"
+
+    - name: "Install NGINX using apt"
       become: true
-      yum:
+      apt:
         name: nginx
         update_cache: yes
         state: present
+      when: ansible_distribution == "Ubuntu"
 
     - name: "Generate NGINX configuration"
       become: true

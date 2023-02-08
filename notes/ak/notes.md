@@ -2,11 +2,14 @@
 
 ## Start container
 
+Set up environment:
 ```
-export AGLAIS_CODE=/home/ubuntu/gaia-dmp/
+export AGLAIS_CODE=/home/akrause/gaia-dmp/
 eval `ssh-agent -s`
+ssh-add
 ```
 
+Start client container:
 ```
 podman run --rm --tty --interactive \
     --volume "${HOME:?}/clouds.yaml:/etc/openstack/clouds.yaml:ro,z" \
@@ -16,6 +19,7 @@ podman run --rm --tty --interactive \
     --env "cloudname=iris-gaia" --env "configname=zeppelin-eidf" \
     ghcr.io/wfau/atolmis/ansible-client:2022.07.25 bash
 ```
+
 ## Delete all in Openstack project
 
 Run
@@ -42,14 +46,43 @@ sudo systemctl restart nginx
 ## Create test user
 ```
 source /deployments/zeppelin/bin/create-user-tools.sh
-createshirouser ak live user <password>
+ssh zeppelin "createshirouser ak live user <password>"
 ssh zeppelin "create-hdfs-space.sh 'ak' 'live'"
 ```
 
-# Zeppelin
+# Zeppelin example
 
 ```
 %spark.pyspark
 
 sc.version
+```
+
+## Openstack client
+```
+openstack --os-cloud $cloudname server list
+```
+
+## Copy Gaia data
+
+```
+sudo mkdir /data
+sudo mount -t nfs4 10.24.3.164:/data /data
+hdfs dfs -mkdir /data/gaia/GDR3
+hdfs dfs -put /data/GDR3 /data/gaia/
+```
+
+## Pyspark and Spark SQL
+
+Start Pyspark with
+```
+GAIA_DMP_STORE=hdfs:////data/gaia/ pyspark
+```
+
+```
+from gaiadmpsetup.gaiadr3_pyspark_schema_structures import gaia_source_schema
+from gaiadmpsetup.gaiadmpstore import data_store, reattachParquetFileResourceToSparkContext
+
+reattachParquetFileResourceToSparkContext('gaia_source', data_store + "GDR3/GDR3_GAIASOURCE", [gaia_source_schema])
+spark.sql("select * from gaiadr3.gaia_source").show()
 ```

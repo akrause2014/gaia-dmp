@@ -7,7 +7,7 @@ Cython==0.29.23
 protobuf==3.16.0
 pandas==1.2.4
 healpy==1.14.0
-astropy==5.1.1
+astropy==4.3.1
 astroquery==0.4.1
 scikit-learn==0.24.2
 joblib==1.1.0
@@ -16,5 +16,5 @@ pyvo==1.1
 pyarrow==8.0.0
 koalas==1.8.2
 GaiaXPy==1.1.4
-git+https://github.com/wfau/gaiadmpsetup@v0.1.4
+git+https://github.com/akrause2014/gaiadmpsetup
 

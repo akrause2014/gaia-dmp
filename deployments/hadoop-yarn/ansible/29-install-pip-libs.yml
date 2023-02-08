@@ -22,11 +22,10 @@
 
 - name: "Install Python libraries"
   hosts: masters:workers:zeppelin
-  gather_facts: false
+  gather_facts: true
   vars_files:
     - config/ansible.yml
     - /opt/aglais/aglais-status.yml
-
 
   tasks:
 
@@ -44,38 +43,61 @@
 #        name:  'libevent-devel'
 #        state: present
 
+    - name: "Install packages"
+      block:
     # Why do we need this ?
-    - name: "Install gcc package"
-      become: true
-      dnf:
-        name:  'gcc-c++'
-        state: present
+      - name: "Install gcc package"
+        become: true
+        dnf:
+          name:  'gcc-c++'
+          state: present
 
     # Why do we need this ?
-    - name: "Install Python3-devel package"
-      become: true
-      dnf:
-        name:  'python39-devel'
-        state: present
+      - name: "Install Python3-devel package"
+        become: true
+        dnf:
+          name:  'python38-devel'
+          state: present
 
-    - name: "Install required system libraries"
-      become: true
-      dnf:
-        name: libtiff-devel,libjpeg-devel,libzip-devel,freetype-devel,libwebp-devel,tcl-devel,tk-devel,libffi,libffi-devel
-        state: present
+      - name: "Install required system libraries"
+        become: true
+        dnf:
+          name: libtiff-devel,libjpeg-devel,libzip-devel,freetype-devel,libwebp-devel,tcl-devel,tk-devel,libffi,libffi-devel
+          state: present
 
-    - name: "Install required system libraries"
-      become: true
-      dnf:
-        enablerepo: powertools
-        name: lcms2-devel
-        state: present
+      - name: "Install required system libraries"
+        become: true
+        dnf:
+          enablerepo: powertools
+          name: lcms2-devel
+          state: present
 
-    - name: "Install git package"
+      - name: "Install git package"
+        become: true
+        dnf:
+          name:  'git'
+          state: present
+
+      when: ansible_distribution != 'Ubuntu'
+
+    - name: "Install required system libraries on Ubuntu"
       become: true
-      dnf:
-        name:  'git'
-        state: present
+      apt:
+        name:
+          - libtiff-dev
+          - libjpeg-dev
+          - libzip-dev
+          - libfreetype-dev
+          - libwebp-dev
+          - tcl-dev
+          - tk-dev
+#          - libffi
+          - libffi-dev
+          - git
+          - python3-pip
+          - python3.7-distutils
+          - python3.7-dev
+      when: ansible_distribution == 'Ubuntu'
 
     - name: Copy pip requirements file into tmp
       become: true
@@ -86,6 +108,11 @@
     - name: Install the required Python packages
       become: true
       pip:
-        executable: pip3.9
+        executable: pip3.8
         requirements: "/tmp/requirements.txt"
-
+      when: ansible_distribution != 'Ubuntu'
+    - name: Install the required Python packages for Ubuntu
+      become: true
+      pip:
+        requirements: "/tmp/requirements.txt"
+      when: ansible_distribution == 'Ubuntu'

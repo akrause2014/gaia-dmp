@@ -24,7 +24,7 @@
 # https://docs.ansible.com/ansible/latest/user_guide/playbooks_error_handling.html#ignoring-failed-commands
 
 - name: "DNF update"
-  gather_facts: false
+  gather_facts: true
   hosts: all
   vars_files:
     - config/ansible.yml
@@ -33,29 +33,50 @@
   tasks:
 
     # This is a noop to force a cache-refresh.
-    - name: "Update the DNF cache"
-      become: true
-      ignore_errors: true
-      dnf:
-        name:  'kernel'
-        state: present
-        update_cache: true
+    - name: install with DNF
+      block:
+      - name: "Update the DNF cache"
+        become: true
+        ignore_errors: true
+        dnf:
+          name:  'kernel'
+          state: present
+          update_cache: true
+      - name: "Install EPEL"
+        become: true
+        dnf:
+          name:  'epel-release'
+          state: present
+          update_cache: true
+      - name: "Install core tools"
+        become: true
+        dnf:
+          name:
+            - 'jq'
+#            - 'jc'
+            - 'atop'
+            - 'htop'
+            - 'wget'
+          state: present
 
-    - name: "Install EPEL"
-      become: true
-      dnf:
-        name:  'epel-release'
-        state: present
-        update_cache: true
+      when: ansible_distribution != "Ubuntu"
 
-    - name: "Install core tools"
-      become: true
-      dnf:
-        name:
-          - 'jq'
-#          - 'jc'
-          - 'atop'
-          - 'htop'
-          - 'wget'
-        state: present
+    - name: Install on Ubuntu
+      block:
+      - name: "Update the apt cache"
+        become: true
+        ignore_errors: true
+        apt:
+          update_cache: true
+      - name: "Install core tools"
+        become: true
+        apt:
+          name:
+            - jq
+            - jc
+            - atop
+            - htop
+            - wget
+          state: present
+      when: ansible_distribution == "Ubuntu"
 

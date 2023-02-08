@@ -242,15 +242,15 @@
   tasks:
 
    - name: "Install password generator"
-     dnf:
+     package:
        name:  "pwgen"
-       state: "installed"
+       state: present
 
-   - name: "Accept SSH key for data node"
-     become: true
-     become_user: "{{zepuser}}"
-     ansible.builtin.shell: |
-        ssh-keyscan 'data.aglais.uk' >> "${HOME}/.ssh/known_hosts"
+#   - name: "Accept SSH key for data node"
+#     become: true
+#     become_user: "{{zepuser}}"
+#     ansible.builtin.shell: |
+#        ssh-keyscan 'data.aglais.uk' >> "${HOME}/.ssh/known_hosts"
 
    - name: "Create Scipt to export users"
      copy:

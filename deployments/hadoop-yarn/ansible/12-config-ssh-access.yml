@@ -144,6 +144,6 @@
       ansible.posix.selinux:
         policy: targeted
         state:  permissive
-
+      failed_when: result.msg | default('ok', True) is not search('(^ok$|libselinux-python|(SELinux state changed))')
 
 

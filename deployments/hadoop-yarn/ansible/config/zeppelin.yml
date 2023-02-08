@@ -21,8 +21,8 @@
 #
 
 # Zeppelin vars
-zepvers: "0.10.0"
-zepname: "zeppelin-0.10.0-bin-all"
+zepvers: "0.10.1"
+zepname: "zeppelin-0.10.1-bin-all"
 zepbase: "/home/rocky"
 zephome: "/home/rocky/zeppelin"
 zephost: "zeppelin"
@@ -32,6 +32,3 @@ zepusersgroup: "zeppelinusers"
 
 zepuserhome: "/home/rocky"
 zepusername: "rocky"
-
-
-
