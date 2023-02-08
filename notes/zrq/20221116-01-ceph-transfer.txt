@@ -53,6 +53,7 @@
         '
 
 <<<<<<< HEAD
+<<<<<<< HEAD
     >   Wed 16 Nov 12:29:32 UTC 2022
     >   iris-gaia-blue-20221013-zeppelin
 =======
@@ -65,6 +66,10 @@ iris-gaia-blue-20221013-zeppelin
 =======
 >>>>>>> 9c6bdac (Fix deprecated DNS name)
 >>>>>>> 56a3fd8 (Fix deprecated DNS name)
+=======
+    >   Wed 16 Nov 12:29:32 UTC 2022
+    >   iris-gaia-blue-20221013-zeppelin
+>>>>>>> origin/master
 
 
 # -----------------------------------------------------
@@ -112,6 +117,9 @@ iris-gaia-blue-20221013-zeppelin
         source /deployments/hadoop-yarn/bin/deploy.sh
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> origin/master
     >   aglais:
     >     status:
     >       deployment:
@@ -635,10 +643,5 @@ EOF
     >     },
     >     ....
     >   ]
-=======
---START--
-....
-....
---END--
 
 
