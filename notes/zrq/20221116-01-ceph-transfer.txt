@@ -60,7 +60,11 @@
 Wed 16 Nov 12:29:32 UTC 2022
 iris-gaia-blue-20221013-zeppelin
 --END--
+<<<<<<< HEAD
 >>>>>>> a3254bb (Fix deprecated DNS name)
+=======
+>>>>>>> 9c6bdac (Fix deprecated DNS name)
+>>>>>>> 56a3fd8 (Fix deprecated DNS name)
 
 
 # -----------------------------------------------------
@@ -636,7 +640,5 @@ EOF
 ....
 ....
 --END--
->>>>>>> a3254bb (Fix deprecated DNS name)
-
 
 
