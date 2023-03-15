@@ -2,7 +2,6 @@
 
 ## Start container
 
-<<<<<<< HEAD
 Set up environment:
 ```
 export AGLAIS_CODE=/home/akrause/gaia-dmp/
@@ -35,7 +34,6 @@ This deletes all servers, networks, routers, security groups, ...
 /deployments/hadoop-yarn/bin/create-all.sh $cloudname $configname
 ```
 
-<<<<<<< HEAD
 ## Fix nginx on the zeppelin instance
 
 Remove the `server` section from `/etc/nginx/nginx.conf` so that it picks up the config in `/etc/nginx/conf.d/zeppelin.conf` instead.
