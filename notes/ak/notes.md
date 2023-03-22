@@ -69,16 +69,28 @@ openstack --os-cloud $cloudname server list
 sudo mkdir /data
 sudo mount -t nfs4 10.24.3.164:/data /data
 hdfs dfs -mkdir /data/gaia/GDR3
-hdfs dfs -put /data/GDR3 /data/gaia/
+hdfs dfs -put /data/GDR3_GAIASOURCE/GDR3_GAIASOURCE /data/gaia/GDR3
 ```
 
 ## Pyspark and Spark SQL
 
 Start Pyspark with
 ```
-GAIA_DMP_STORE=hdfs:////data/gaia/ pyspark
+pyspark
 ```
 
+Define data location:
+```
+from gaiadmpconf import conf
+conf.GAIA_DATA_LOCATION = 'hdfs:///data/gaia/'
+```
+
+Then import Gaia setup:
+```
+import gaiadmpsetup
+```
+
+### Manual attachment of table 'gaia_source'
 ```
 from gaiadmpsetup.gaiadr3_pyspark_schema_structures import gaia_source_schema
 from gaiadmpsetup.gaiadmpstore import data_store, reattachParquetFileResourceToSparkContext
@@ -86,7 +98,7 @@ from gaiadmpsetup.gaiadmpstore import data_store, reattachParquetFileResourceToS
 reattachParquetFileResourceToSparkContext('gaia_source', data_store + "GDR3/GDR3_GAIASOURCE", [gaia_source_schema])
 spark.sql("select * from gaiadr3.gaia_source").show()
 ```
-=======
+
 ## Create test user
 ```
 source /deployments/zeppelin/bin/create-user-tools.sh
