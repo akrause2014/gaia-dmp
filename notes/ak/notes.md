@@ -132,6 +132,19 @@ password=$(
 )
 ```
 
+### Zeppelin API login
+
+Login to Zeppelin with user created above:
+```
+zepcookies=/tmp/${username:?}.cookies
+
+curl --silent --request 'POST' --cookie-jar "${zepcookies:?}"\
+     --data "userName=${username:?}" \
+     --data "password=${password:?}" \
+     "${zeppelinurl:?}/api/login" \
+ | jq '.'
+```
+
 ### Data Location
 
 Add the data location to the first notebook.
@@ -154,15 +167,6 @@ EOF
 
 ```
 
-Login to Zeppelin with user created above:
-```
-curl --silent --request 'POST' --cookie-jar "${zepcookies:?}"\
-     --data "userName=${username:?}" \
-     --data "password=${password:?}" \
-     "${zeppelinurl:?}/api/login" \
- | jq '.'
-```
-
 Find note id and post to add paragraph to the note. 
 ```
 noteid='2HYED9NTU'
@@ -173,8 +177,9 @@ curl --silent --request POST --cookie "${zepcookies:?}" \
  | jq '.'
 ```
 
-### Set up SSH tunnel
+### Set up SSH tunnel
 
+Create tunnel for Zeppelin API
 ```
 ssh \
     -n \
