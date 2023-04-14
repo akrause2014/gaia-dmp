@@ -43,10 +43,10 @@ sudo vi /etc/nginx/nginx.conf
 sudo systemctl restart nginx
 ```
 
-## Create test user
+## Create test user (change <password>)
 ```
 source /deployments/zeppelin/bin/create-user-tools.sh
-ssh zeppelin "createshirouser ak live user <password>"
+ssh zeppelin "create-shiro-user.sh ak live user <password>"
 ssh zeppelin "create-hdfs-space.sh 'ak' 'live'"
 ```
 
@@ -65,11 +65,12 @@ openstack --os-cloud $cloudname server list
 
 ## Copy Gaia data
 
+On the zeppelin instance
 ```
 sudo mkdir /data
 sudo mount -t nfs4 10.24.3.164:/data /data
-hdfs dfs -mkdir /data/gaia/GDR3
-hdfs dfs -put /data/GDR3_GAIASOURCE/GDR3_GAIASOURCE /data/gaia/GDR3
+hdfs dfs -mkdir -p /data/gaia/GDR3
+hdfs dfs -put /data/GDR3/GDR3_GAIASOURCE /data/gaia/GDR3
 ```
 
 ## Pyspark and Spark SQL
@@ -104,4 +105,93 @@ spark.sql("select * from gaiadr3.gaia_source").show()
 source /deployments/zeppelin/bin/create-user-tools.sh
 createshirouser ak live user <password>
 ssh zeppelin "create-hdfs-space.sh 'ak' 'live'"
+```
+
+## Restart Zeppelin
+
+If required (e.g. data location changes)
+```
+ssh zeppelin 'zeppelin-daemon.sh restart'
+```
+
+## Testing
+
+### Create User
+
+```
+source /deployments/zeppelin/bin/create-user-tools.sh
+
+username=$(pwgen 16 1)
+
+createusermain "${username}" \
+ | tee "/tmp/${username}.json" \
+ | jq '.shirouser | {"username": .name, "password": .password}'
+
+password=$(
+  jq -r '.shirouser.password' "/tmp/${username}.json"
+)
+```
+
+### Data Location
+
+Add the data location to the first notebook.
+
+Create file with the note paragraph to add.
+```
+cat << 'EOF' | yq -o json '.' | tee "/tmp/datalocation.json"
+title: "Set data location"
+text: |
+  %pyspark
+  from gaiadmpconf import conf
+  conf.GAIA_DATA_LOCATION = 'hdfs:///data/gaia/'
+  import gaiadmpsetup
+EOF
+
+> {
+>   "title": "Set data location",
+>   "text": "%pyspark\nfrom gaiadmpconf import conf\nconf.GAIA_DATA_LOCATION = 'hdfs:///data/gaia/'\nimport gaiadmpsetup\n"
+> }
+
+```
+
+Login to Zeppelin with user created above:
+```
+curl --silent --request 'POST' --cookie-jar "${zepcookies:?}"\
+     --data "userName=${username:?}" \
+     --data "password=${password:?}" \
+     "${zeppelinurl:?}/api/login" \
+ | jq '.'
+```
+
+Find note id and post to add paragraph to the note. 
+```
+noteid='2HYED9NTU'
+curl --silent --request POST --cookie "${zepcookies:?}" \
+     --data "@/tmp/datalocation.json"\
+    "${zeppelinurl:?}/api/notebook/${noteid:?}/paragraph" \
+ | tee "/tmp/datalocation.out" \
+ | jq '.'
+```
+
+### Set up SSH tunnel
+
+```
+ssh \
+    -n \
+    -f \
+    -N \
+    -L 8080:zeppelin:8080 \
+    zeppelin
+
+zeppelinurl='http://localhost:8080'
+```
+
+### Run tests
+
+```
+source /deployments/zeppelin/bin/zeppelin-rest-tools.sh
+
+testall "${username:?}" "${password:?}" \
+  | tee "/tmp/${username}-testall.json" \
+  | jq '.'
 ```
