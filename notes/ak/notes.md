@@ -180,11 +180,14 @@ text: |
   conf.GAIA_DATA_LOCATION = 'hdfs:///data/gaia/'
   import gaiadmpsetup
 EOF
+```
 
-> {
->   "title": "Set data location",
->   "text": "%pyspark\nfrom gaiadmpconf import conf\nconf.GAIA_DATA_LOCATION = 'hdfs:///data/gaia/'\nimport gaiadmpsetup\n"
-> }
+Example output:
+```
+{
+  "title": "Set data location",
+  "text": "%pyspark\nfrom gaiadmpconf import conf\nconf.GAIA_DATA_LOCATION = 'hdfs:///data/gaia/'\nimport gaiadmpsetup\n"
+}
 ```
 
 Find note id and post to add paragraph to the note. 
