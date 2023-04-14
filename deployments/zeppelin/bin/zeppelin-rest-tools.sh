@@ -345,7 +345,9 @@ EOF
 
 cat << EOF
     ],
-    "duration": "${testtime}"
+    "duration": "${testtime}",
+    "start": "${teststart}",
+    "end": "${testdone}"
 }
 EOF
         }
