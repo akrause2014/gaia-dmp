@@ -78,30 +78,42 @@
           name:  'git'
           state: present
 
+      - name: Set pip executable
+        ansible.builtin.set_fact:
+          pip_executable: pip3.8
+
       when: ansible_distribution != 'Ubuntu'
 
     - name: "Install required system libraries on Ubuntu"
       become: true
-      apt:
-        name:
-          - libtiff-dev
-          - libjpeg-dev
-          - libzip-dev
-          - libfreetype-dev
-          - libwebp-dev
-          - tcl-dev
-          - tk-dev
-#          - libffi
-          - libffi-dev
-          - git
-          - python3-pip
-          - python3.7-distutils
-          - python3.7-dev
       when: ansible_distribution == 'Ubuntu'
+      block:
+      - name: Install libraries
+        apt:
+          name:
+            - libtiff-dev
+            - libjpeg-dev
+            - libzip-dev
+            - libfreetype-dev
+            - libwebp-dev
+            - tcl-dev
+            - tk-dev
+#            - libffi
+            - libffi-dev
+            - git
+            - python3-pip
+            - python3.8-distutils
+            - python3.8-dev
+      - name: Set pip executable
+        ansible.builtin.set_fact:
+          pip_executable: pip
 
     - name: "Upgrade pip"
       become: true
-      command: "pip install --upgrade pip"
+      pip:
+        name: pip
+        state: latest
+        executable: "{{ pip_executable | default(omit) }}"
 
     - name: Copy pip requirements file into tmp
       become: true
@@ -112,11 +124,5 @@
     - name: Install the required Python packages
       become: true
       pip:
-        executable: pip3.8
+        executable: "{{ pip_executable | default(omit) }}"
         requirements: "/tmp/requirements.txt"
-      when: ansible_distribution != 'Ubuntu'
-    - name: Install the required Python packages for Ubuntu
-      become: true
-      pip:
-        requirements: "/tmp/requirements.txt"
-      when: ansible_distribution == 'Ubuntu'
