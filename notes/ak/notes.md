@@ -70,7 +70,7 @@ On the zeppelin instance
 sudo mkdir /data
 sudo mount -t nfs4 10.24.3.164:/data /data
 hdfs dfs -mkdir -p /data/gaia/GDR3
-hdfs dfs -put /data/GDR3/GDR3_GAIASOURCE /data/gaia/GDR3
+hdfs dfs -put /data/GDR3_GAIASOURCE/GDR3_GAIASOURCE /data/gaia/GDR3
 ```
 
 ## Pyspark and Spark SQL
