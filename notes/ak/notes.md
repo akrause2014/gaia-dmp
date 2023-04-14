@@ -166,9 +166,9 @@ curl --silent --cookie "${zepcookies:?}" \
  | jq '.'
 ```
 
-### Data Location
+### Set data location
 
-Add the data location to the first notebook.
+Add the data location to a notebook and initialise gaiadmp setup before running anything else.
 
 Create file with the note paragraph to add.
 ```
@@ -197,6 +197,18 @@ curl --silent --request POST --cookie "${zepcookies:?}" \
      --data "@/tmp/datalocation.json"\
     "${zeppelinurl:?}/api/notebook/${noteid:?}/paragraph" \
  | tee "/tmp/datalocation.out" \
+ | jq '.'
+```
+
+Run the new paragraph.
+```
+paraid=$(
+jq -r '.body' "/tmp/datalocation.out"
+)
+
+curl --silent --request POST --cookie "${zepcookies:?}" \
+    "${zeppelinurl:?}/api/notebook/run/${noteid:?}/${paraid:?}" \
+ | tee "/tmp/${paraid:?}.out" \
  | jq '.'
 ```
 
