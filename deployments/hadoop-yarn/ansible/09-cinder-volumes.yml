@@ -43,16 +43,17 @@
     - /opt/aglais/aglais-status.yml
   tasks:
 
-#    - name: "Check btrfs tools are installed"
-#      become: true
-#      dnf:
-#        name:  btrfs-progs
-#        state: present
+- name: "Check btrfs tools are installed"
+  become: true
+  dnf:
+    name:  btrfs-progs
+    state: present
+  when: ansible_distribution != 'Rocky'
 
-    - name: "Call the mount-volumes task"
-      include_tasks: tasks/mount-volumes.yml
-      loop: "{{ hostvars[ inventory_hostname ].discs }}"
-      loop_control:
-        loop_var: disc
-      when: ((disc.type == 'cinder') or (disc.type == 'local'))
+- name: "Call the mount-volumes task"
+  include_tasks: tasks/mount-volumes.yml
+  loop: "{{ hostvars[ inventory_hostname ].discs }}"
+  loop_control:
+    loop_var: disc
+  when: ((disc.type == 'cinder') or (disc.type == 'local'))
 
