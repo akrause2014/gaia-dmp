@@ -160,6 +160,16 @@
             "${mountmode}"
         }
 
+    createuserhome()
+    {
+    local username=${1:?'username required'}
+    ssh zeppelin \
+        "
+        sudo mkdir -p '/home/${username}'
+        sudo chown -R '${username}':'${username}' '/home/${username}'
+        "
+    }
+
     copyusernotebooks()
         {
         local username=${1:?'username required'}
@@ -230,26 +240,27 @@
 echo "{"
 echo "\"username\": \"${username}\","
 echo "\"usertype\": \"${usertype}\","
-echo "\"homeshare\": "
-        createcephshare \
-            "${homesharecloud}" \
-            "${homesharename}"  \
-            "${homesharepath}"  \
-            "zeppelin" \
-            "${homesharesize}" \
-            "rw"
+#echo "\"homeshare\": "
+#        createcephshare \
+#            "${homesharecloud}" \
+#            "${homesharename}"  \
+#            "${homesharepath}"  \
+#            "zeppelin" \
+#            "${homesharesize}" \
+#            "rw"
+createuserhome "${username}"
 
-echo ","
-echo "\"usershare\": "
-        createcephshare \
-            "${usersharecloud}" \
-            "${usersharename}"  \
-            "${usersharepath}"  \
-            "zeppelin:workers" \
-            "${usersharesize}" \
-            "rw"
+#echo ","
+#echo "\"usershare\": "
+#        createcephshare \
+#            "${usersharecloud}" \
+#            "${usersharename}"  \
+#            "${usersharepath}"  \
+#            "zeppelin:workers" \
+#            "${usersharesize}" \
+#            "rw"
 
-echo ","
+#echo ","
 echo "\"linuxuser\": "
         local linuxuserjson=$(mktemp)
         createlinuxuser \
