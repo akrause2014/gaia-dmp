@@ -132,16 +132,37 @@ password=$(
 )
 ```
 
+### Set up SSH tunnel
+
+Create tunnel for Zeppelin API
+```
+ssh \
+    -n \
+    -f \
+    -N \
+    -L 8080:zeppelin:8080 \
+    zeppelin
+
+zeppelinurl='http://localhost:8080'
+```
+
 ### Zeppelin API login
 
 Login to Zeppelin with user created above:
 ```
 zepcookies=/tmp/${username:?}.cookies
 
-curl --silent --request 'POST' --cookie-jar "${zepcookies:?}"\
+curl --silent --request POST --cookie-jar "${zepcookies:?}"\
      --data "userName=${username:?}" \
      --data "password=${password:?}" \
      "${zeppelinurl:?}/api/login" \
+ | jq '.'
+```
+
+List notebooks that the user can see.
+```
+curl --silent --cookie "${zepcookies:?}" \
+  "${zeppelinurl:?}/api/notebook" \
  | jq '.'
 ```
 
@@ -164,31 +185,16 @@ EOF
 >   "title": "Set data location",
 >   "text": "%pyspark\nfrom gaiadmpconf import conf\nconf.GAIA_DATA_LOCATION = 'hdfs:///data/gaia/'\nimport gaiadmpsetup\n"
 > }
-
 ```
 
 Find note id and post to add paragraph to the note. 
 ```
-noteid='2HYED9NTU'
+noteid='2HYED9NTU' # check noteid in list
 curl --silent --request POST --cookie "${zepcookies:?}" \
      --data "@/tmp/datalocation.json"\
     "${zeppelinurl:?}/api/notebook/${noteid:?}/paragraph" \
  | tee "/tmp/datalocation.out" \
  | jq '.'
-```
-
-### Set up SSH tunnel
-
-Create tunnel for Zeppelin API
-```
-ssh \
-    -n \
-    -f \
-    -N \
-    -L 8080:zeppelin:8080 \
-    zeppelin
-
-zeppelinurl='http://localhost:8080'
 ```
 
 ### Run tests
