@@ -1,0 +1,1004 @@
+{
+"login": {
+  "status": "OK",
+  "message": "",
+  "body": {
+    "principal": "laix7yoh2eebahDo",
+    "ticket": "2c29fc60-835c-44e9-97df-bfacebd6e84e",
+    "roles": "[]"
+  }
+},
+"notebooks": [
+{
+"noteid": "2HY69HKAA",
+"clear": {
+  "status": "OK",
+  "message": ""
+},
+"execute": {
+"id":   "2HY69HKAA",
+"name": "1. Start here",
+"path": "/Users/laix7yoh2eebahDo/examples/1. Start here",
+"paragraphs": [
+
+    {
+    "id":    "20210507-152557_21014937",
+    "title": "Introduction",
+    "execute":
+{
+  "status": "OK",
+  "body": {
+    "code": "SUCCESS"
+  }
+}
+    ,
+    "duration": "0:0:0"
+    }
+,
+    {
+    "id":    "20210507-152628_446700578",
+    "title": "Familiarisation",
+    "execute":
+{
+  "status": "OK",
+  "body": {
+    "code": "SUCCESS"
+  }
+}
+    ,
+    "duration": "0:0:0"
+    }
+,
+    {
+    "id":    "20210510-084215_1445060106",
+    "title": "Zeppelin notebooks",
+    "execute":
+{
+  "status": "OK",
+  "body": {
+    "code": "SUCCESS"
+  }
+}
+    ,
+    "duration": "0:0:0"
+    }
+,
+    {
+    "id":    "20210507-160139_1365676170",
+    "title": "PySpark SQL",
+    "execute":
+{
+  "status": "OK",
+  "body": {
+    "code": "SUCCESS"
+  }
+}
+    ,
+    "duration": "0:0:0"
+    }
+,
+    {
+    "id":    "20210510-105824_1166659944",
+    "title": "Example code from previous cell",
+    "execute":
+{
+  "status": "OK",
+  "body": {
+    "code": "SUCCESS"
+  }
+}
+    ,
+    "duration": "0:0:2"
+    }
+,
+    {
+    "id":    "20210507-152746_1171284722",
+    "title": "Spark aspects",
+    "execute":
+{
+  "status": "OK",
+  "body": {
+    "code": "SUCCESS"
+  }
+}
+    ,
+    "duration": "0:0:0"
+    }
+,
+    {
+    "id":    "20210510-090543_1039599855",
+    "title": "Further reading and resources",
+    "execute":
+{
+  "status": "OK",
+  "body": {
+    "code": "SUCCESS"
+  }
+}
+    ,
+    "duration": "0:0:0"
+    }
+,
+    {
+    "id":    "paragraph_1681484847720_2134272209",
+    "title": "Set data location",
+    "execute":
+{
+  "status": "OK",
+  "body": {
+    "code": "SUCCESS"
+  }
+}
+    ,
+    "duration": "0:0:0"
+    }
+    ],
+"duration": "0:0:3"
+}
+}
+,{
+"noteid": "2HYZXD34F",
+"clear": {
+  "status": "OK",
+  "message": ""
+},
+"execute": {
+"id":   "2HYZXD34F",
+"name": "2. Data holdings",
+"path": "/Users/laix7yoh2eebahDo/examples/2. Data holdings",
+"paragraphs": [
+
+    {
+    "id":    "20210507-123801_497865463",
+    "title": "Introduction",
+    "execute":
+{
+  "status": "OK",
+  "body": {
+    "code": "SUCCESS"
+  }
+}
+    ,
+    "duration": "0:0:0"
+    }
+,
+    {
+    "id":    "20210507-124436_282498395",
+    "title": "Database and table details",
+    "execute":
+{
+  "status": "OK",
+  "body": {
+    "code": "SUCCESS"
+  }
+}
+    ,
+    "duration": "0:0:2"
+    }
+,
+    {
+    "id":    "paragraph_1651056869670_357515407",
+    "title": "N.B.",
+    "execute":
+{
+  "status": "OK",
+  "body": {
+    "code": "SUCCESS"
+  }
+}
+    ,
+    "duration": "0:0:0"
+    }
+,
+    {
+    "id":    "20210507-124618_1845823957",
+    "title": "Description and links",
+    "execute":
+{
+  "status": "OK",
+  "body": {
+    "code": "SUCCESS"
+  }
+}
+    ,
+    "duration": "0:0:0"
+    }
+,
+    {
+    "id":    "20210507-133844_1243154051",
+    "title": "Column listing for a table",
+    "execute":
+{
+  "status": "OK",
+  "body": {
+    "code": "SUCCESS"
+  }
+}
+    ,
+    "duration": "0:0:0"
+    }
+,
+    {
+    "id":    "20210507-140821_1444471628",
+    "title": "Querying the main catalogue",
+    "execute":
+{
+  "status": "OK",
+  "body": {
+    "code": "SUCCESS"
+  }
+}
+    ,
+    "duration": "0:0:1"
+    }
+,
+    {
+    "id":    "20210507-144257_1004220319",
+    "title": "Querying with cross-matched data",
+    "execute":
+{
+  "status": "OK",
+  "body": {
+    "code": "SUCCESS"
+  }
+}
+    ,
+    "duration": "0:0:0"
+    }
+,
+    {
+    "id":    "20210507-144728_1143294166",
+    "title": "Things to note",
+    "execute":
+{
+  "status": "OK",
+  "body": {
+    "code": "SUCCESS"
+  }
+}
+    ,
+    "duration": "0:0:0"
+    }
+    ],
+"duration": "0:0:5"
+}
+}
+,{
+"noteid": "2HWFD3C67",
+"clear": {
+  "status": "OK",
+  "message": ""
+},
+"execute": {
+"id":   "2HWFD3C67",
+"name": "3. Source counts over the sky",
+"path": "/Users/laix7yoh2eebahDo/examples/3. Source counts over the sky",
+"paragraphs": [
+
+    {
+    "id":    "20210507-084613_357121151",
+    "title": "null",
+    "execute":
+{
+  "status": "OK",
+  "body": {
+    "code": "SUCCESS"
+  }
+}
+    ,
+    "duration": "0:0:0"
+    }
+,
+    {
+    "id":    "20200826-105718_1698521515",
+    "title": "Set the resolution level and define the query",
+    "execute":
+{
+  "status": "OK",
+  "body": {
+    "code": "SUCCESS"
+  }
+}
+    ,
+    "duration": "0:0:0"
+    }
+,
+    {
+    "id":    "20200826-110030_2095441495",
+    "title": "Plot up the results",
+    "execute":
+{
+  "status": "OK",
+  "body": {
+    "code": "SUCCESS"
+  }
+}
+    ,
+    "duration": "0:1:11"
+    }
+,
+    {
+    "id":    "20210507-091244_670006530",
+    "title": "Further reading and resources",
+    "execute":
+{
+  "status": "OK",
+  "body": {
+    "code": "SUCCESS"
+  }
+}
+    ,
+    "duration": "0:0:0"
+    }
+,
+    {
+    "id":    "paragraph_1648610499944_1376690736",
+    "title": "null",
+    "execute":
+{
+  "status": "OK",
+  "body": {
+    "code": "SUCCESS"
+  }
+}
+    ,
+    "duration": "0:0:0"
+    }
+    ],
+"duration": "0:1:13"
+}
+}
+,{
+"noteid": "2HX2C6QZC",
+"clear": {
+  "status": "OK",
+  "message": ""
+},
+"execute": {
+"id":   "2HX2C6QZC",
+"name": "4. Mean proper motions over the sky",
+"path": "/Users/laix7yoh2eebahDo/examples/4. Mean proper motions over the sky",
+"paragraphs": [
+
+    {
+    "id":    "paragraph_1646395441893_1272795891",
+    "title": "Introduction",
+    "execute":
+{
+  "status": "OK",
+  "body": {
+    "code": "SUCCESS"
+  }
+}
+    ,
+    "duration": "0:0:0"
+    }
+,
+    {
+    "id":    "20210510-111756_391695716",
+    "title": "Set HEALPix resolution",
+    "execute":
+{
+  "status": "OK",
+  "body": {
+    "code": "SUCCESS"
+  }
+}
+    ,
+    "duration": "0:0:0"
+    }
+,
+    {
+    "id":    "20210510-111538_106023214",
+    "title": "Define a data frame by SQL query",
+    "execute":
+{
+  "status": "OK",
+  "body": {
+    "code": "SUCCESS"
+  }
+}
+    ,
+    "duration": "0:0:0"
+    }
+,
+    {
+    "id":    "20210510-111939_1386609632",
+    "title": "Mean RA proper motion plot",
+    "execute":
+{
+  "status": "OK",
+  "body": {
+    "code": "SUCCESS"
+  }
+}
+    ,
+    "duration": "0:0:42"
+    }
+,
+    {
+    "id":    "20210510-111943_814907111",
+    "title": "Mean Dec proper motion plot",
+    "execute":
+{
+  "status": "OK",
+  "body": {
+    "code": "SUCCESS"
+  }
+}
+    ,
+    "duration": "0:0:1"
+    }
+,
+    {
+    "id":    "20210510-111956_1822284967",
+    "title": "Further reading and resources",
+    "execute":
+{
+  "status": "OK",
+  "body": {
+    "code": "SUCCESS"
+  }
+}
+    ,
+    "duration": "0:0:0"
+    }
+,
+    {
+    "id":    "20210510-132447_1514402898",
+    "title": "Tidy-up",
+    "execute":
+{
+  "status": "OK",
+  "body": {
+    "code": "SUCCESS"
+  }
+}
+    ,
+    "duration": "0:0:1"
+    }
+,
+    {
+    "id":    "20211207-132335_689637194",
+    "title": "null",
+    "execute":
+{
+  "status": "OK",
+  "body": {
+    "code": "SUCCESS"
+  }
+}
+    ,
+    "duration": "0:0:0"
+    }
+    ],
+"duration": "0:0:45"
+}
+}
+,{
+"noteid": "2HWW872V6",
+"clear": {
+  "status": "OK",
+  "message": ""
+},
+"execute": {
+"id":   "2HWW872V6",
+"name": "5. Working with Gaia XP spectra",
+"path": "/Users/laix7yoh2eebahDo/examples/5. Working with Gaia XP spectra",
+"paragraphs": [
+
+    {
+    "id":    "paragraph_1650981001262_1093264483",
+    "title": "Introduction",
+    "execute":
+{
+  "status": "OK",
+  "body": {
+    "code": "SUCCESS"
+  }
+}
+    ,
+    "duration": "0:0:1"
+    }
+,
+    {
+    "id":    "paragraph_1650981269844_2057939329",
+    "title": "Sampling and plotting spectra (continuous representation)",
+    "execute":
+{
+  "status": "OK",
+  "body": {
+    "code": "ERROR"
+  }
+}
+    ,
+    "duration": "0:0:3"
+    }
+    ],
+"duration": "0:0:4"
+}
+}
+,{
+"noteid": "2HZHB8SUT",
+"clear": {
+  "status": "OK",
+  "message": ""
+},
+"execute": {
+"id":   "2HZHB8SUT",
+"name": "6. Working with cross-matched surveys",
+"path": "/Users/laix7yoh2eebahDo/examples/6. Working with cross-matched surveys",
+"paragraphs": [
+
+    {
+    "id":    "paragraph_1646992513304_653265144",
+    "title": "Introduction",
+    "execute":
+{
+  "status": "OK",
+  "body": {
+    "code": "SUCCESS"
+  }
+}
+    ,
+    "duration": "0:0:0"
+    }
+,
+    {
+    "id":    "paragraph_1647250636508_2082384671",
+    "title": "Standard platform set-up",
+    "execute":
+{
+  "status": "OK",
+  "body": {
+    "code": "SUCCESS"
+  }
+}
+    ,
+    "duration": "0:0:0"
+    }
+,
+    {
+    "id":    "paragraph_1646992632242_1534494301",
+    "title": "Utility function definitions",
+    "execute":
+{
+  "status": "OK",
+  "body": {
+    "code": "SUCCESS"
+  }
+}
+    ,
+    "duration": "0:0:0"
+    }
+,
+    {
+    "id":    "paragraph_1646996320283_812479873",
+    "title": "Define a data aggregation",
+    "execute":
+{
+  "status": "OK",
+  "body": {
+    "code": "SUCCESS"
+  }
+}
+    ,
+    "duration": "0:0:0"
+    }
+,
+    {
+    "id":    "paragraph_1646996892901_1183551489",
+    "title": "Collect the results and process in preparation for visualisation",
+    "execute":
+{
+  "status": "OK",
+  "body": {
+    "code": "SUCCESS"
+  }
+}
+    ,
+    "duration": "0:0:52"
+    }
+,
+    {
+    "id":    "paragraph_1646997023626_41851232",
+    "title": "Visualise via matplotlib",
+    "execute":
+{
+  "status": "OK",
+  "body": {
+    "code": "ERROR"
+  }
+}
+    ,
+    "duration": "0:0:0"
+    }
+    ],
+"duration": "0:0:53"
+}
+}
+,{
+"noteid": "2HWBFPGX4",
+"clear": {
+  "status": "OK",
+  "message": ""
+},
+"execute": {
+"id":   "2HWBFPGX4",
+"name": "7. Good astrometric solutions via ML Random Forest classifier",
+"path": "/Users/laix7yoh2eebahDo/examples/7. Good astrometric solutions via ML Random Forest classifier",
+"paragraphs": [
+
+    {
+    "id":    "20201013-131059_546082898",
+    "title": "null",
+    "execute":
+{
+  "status": "OK",
+  "body": {
+    "code": "SUCCESS"
+  }
+}
+    ,
+    "duration": "0:0:0"
+    }
+,
+    {
+    "id":    "20201013-131649_1734629667",
+    "title": "Basic catalogue query selections and predicates",
+    "execute":
+{
+  "status": "OK",
+  "body": {
+    "code": "SUCCESS"
+  }
+}
+    ,
+    "duration": "0:0:0"
+    }
+,
+    {
+    "id":    "20201013-132418_278702125",
+    "title": "Raw catalogue with selected columns",
+    "execute":
+{
+  "status": "OK",
+  "body": {
+    "code": "SUCCESS"
+  }
+}
+    ,
+    "duration": "0:2:24"
+    }
+,
+    {
+    "id":    "20201120-094650_221463065",
+    "title": "Visualisation (colour / absolute-magnitue diagram) of the raw catalogue",
+    "execute":
+{
+  "status": "OK",
+  "body": {
+    "code": "SUCCESS"
+  }
+}
+    ,
+    "duration": "0:0:4"
+    }
+,
+    {
+    "id":    "20201120-110502_1704727157",
+    "title": "null",
+    "execute":
+{
+  "status": "OK",
+  "body": {
+    "code": "SUCCESS"
+  }
+}
+    ,
+    "duration": "0:0:0"
+    }
+,
+    {
+    "id":    "20201123-105445_95907042",
+    "title": "Define the training samples",
+    "execute":
+{
+  "status": "OK",
+  "body": {
+    "code": "SUCCESS"
+  }
+}
+    ,
+    "duration": "0:0:7"
+    }
+,
+    {
+    "id":    "20201015-161110_18118893",
+    "title": "Assemble training and reserve test sets",
+    "execute":
+{
+  "status": "OK",
+  "body": {
+    "code": "SUCCESS"
+  }
+}
+    ,
+    "duration": "0:0:1"
+    }
+,
+    {
+    "id":    "20201013-152110_1282917873",
+    "title": "Train up the Random Forest",
+    "execute":
+{
+  "status": "OK",
+  "body": {
+    "code": "SUCCESS"
+  }
+}
+    ,
+    "duration": "0:3:58"
+    }
+,
+    {
+    "id":    "20210504-153521_1591875670",
+    "title": "Check feature set for nulls",
+    "execute":
+{
+  "status": "OK",
+  "body": {
+    "code": "SUCCESS"
+  }
+}
+    ,
+    "duration": "0:0:0"
+    }
+,
+    {
+    "id":    "20201015-131823_1744793710",
+    "title": "Classify the reserved test sets",
+    "execute":
+{
+  "status": "OK",
+  "body": {
+    "code": "SUCCESS"
+  }
+}
+    ,
+    "duration": "0:0:0"
+    }
+,
+    {
+    "id":    "20201016-154755_24366630",
+    "title": "Classification confusion matrix",
+    "execute":
+{
+  "status": "OK",
+  "body": {
+    "code": "SUCCESS"
+  }
+}
+    ,
+    "duration": "0:0:19"
+    }
+,
+    {
+    "id":    "20201123-163421_1811049882",
+    "title": "Relative importance of the selected features",
+    "execute":
+{
+  "status": "OK",
+  "body": {
+    "code": "SUCCESS"
+  }
+}
+    ,
+    "duration": "0:0:0"
+    }
+,
+    {
+    "id":    "20201123-162249_1468741293",
+    "title": "Apply the classification model and plot sample results",
+    "execute":
+{
+  "status": "OK",
+  "body": {
+    "code": "SUCCESS"
+  }
+}
+    ,
+    "duration": "0:0:47"
+    }
+,
+    {
+    "id":    "20201124-100512_110153564",
+    "title": "Histogram of classification probability",
+    "execute":
+{
+  "status": "OK",
+  "body": {
+    "code": "SUCCESS"
+  }
+}
+    ,
+    "duration": "0:0:31"
+    }
+,
+    {
+    "id":    "20201125-103046_1353183691",
+    "title": "Sky distribution of good source sample",
+    "execute":
+{
+  "status": "OK",
+  "body": {
+    "code": "SUCCESS"
+  }
+}
+    ,
+    "duration": "0:0:13"
+    }
+,
+    {
+    "id":    "20201125-163312_728555601",
+    "title": "Sky distribution of bad source sample",
+    "execute":
+{
+  "status": "OK",
+  "body": {
+    "code": "SUCCESS"
+  }
+}
+    ,
+    "duration": "0:0:12"
+    }
+,
+    {
+    "id":    "paragraph_1647354647989_1984770159",
+    "title": "Tidy up",
+    "execute":
+{
+  "status": "OK",
+  "body": {
+    "code": "SUCCESS"
+  }
+}
+    ,
+    "duration": "0:0:0"
+    }
+,
+    {
+    "id":    "20210428-140519_1288739408",
+    "title": "Further reading and resources",
+    "execute":
+{
+  "status": "OK",
+  "body": {
+    "code": "SUCCESS"
+  }
+}
+    ,
+    "duration": "0:0:1"
+    }
+,
+    {
+    "id":    "paragraph_1661761989954_2120199763",
+    "title": "null",
+    "execute":
+{
+  "status": "OK",
+  "body": {
+    "code": "SUCCESS"
+  }
+}
+    ,
+    "duration": "0:0:0"
+    }
+    ],
+"duration": "0:8:38"
+}
+}
+,{
+"noteid": "2HW446XPU",
+"clear": {
+  "status": "OK",
+  "message": ""
+},
+"execute": {
+"id":   "2HW446XPU",
+"name": "8. Tips and tricks",
+"path": "/Users/laix7yoh2eebahDo/examples/8. Tips and tricks",
+"paragraphs": [
+
+    {
+    "id":    "paragraph_1646302979387_1967819699",
+    "title": "null",
+    "execute":
+{
+  "status": "OK",
+  "body": {
+    "code": "SUCCESS"
+  }
+}
+    ,
+    "duration": "0:0:0"
+    }
+,
+    {
+    "id":    "paragraph_1650969130797_24418076",
+    "title": "Resetting the Spark context",
+    "execute":
+{
+  "status": "OK",
+  "body": {
+    "code": "SUCCESS"
+  }
+}
+    ,
+    "duration": "0:0:0"
+    }
+,
+    {
+    "id":    "paragraph_1657184311088_165266130",
+    "title": "Exporting data from the platform using ssh",
+    "execute":
+{
+  "status": "OK",
+  "body": {
+    "code": "SUCCESS"
+  }
+}
+    ,
+    "duration": "0:0:0"
+    }
+,
+    {
+    "id":    "paragraph_1646303142140_1348941331",
+    "title": "Interpreters",
+    "execute":
+{
+  "status": "OK",
+  "body": {
+    "code": "SUCCESS"
+  }
+}
+    ,
+    "duration": "0:0:0"
+    }
+,
+    {
+    "id":    "paragraph_1646303435709_963866048",
+    "title": "Getting Python help (PySpark)",
+    "execute":
+{
+  "status": "OK",
+  "body": {
+    "code": "SUCCESS"
+  }
+}
+    ,
+    "duration": "0:0:0"
+    }
+,
+    {
+    "id":    "paragraph_1646307170102_2048767015",
+    "title": "Getting Python help (IPython)",
+    "execute":
+{
+  "status": "OK",
+  "body": {
+    "code": "ERROR"
+  }
+}
+    ,
+    "duration": "0:0:0"
+    }
+    ],
+"duration": "0:0:2"
+}
+}
+    ],
+    "duration": "0:11:45",
+    "start": "15:24:17.527085493",
+    "end": "15:36:02.946385129"
+}
