@@ -60,3 +60,21 @@
  Average IO rate mb/sec: 1174.01
   IO rate std deviation: 43.61
      Test exec time sec: 58.47
+
+----- TestDFSIO ----- : write
+            Date & time: Fri Apr 21 10:19:30 UTC 2023
+        Number of files: 128
+ Total MBytes processed: 128000
+      Throughput mb/sec: 593.42
+ Average IO rate mb/sec: 601.19
+  IO rate std deviation: 63.84
+     Test exec time sec: 221.74
+
+----- TestDFSIO ----- : read
+            Date & time: Fri Apr 21 10:25:06 UTC 2023
+        Number of files: 128
+ Total MBytes processed: 128000
+      Throughput mb/sec: 1156.42
+ Average IO rate mb/sec: 1157.86
+  IO rate std deviation: 40.9
+     Test exec time sec: 116.57
