@@ -212,6 +212,18 @@ curl --silent --request POST --cookie "${zepcookies:?}" \
  | jq '.'
 ```
 
+(This might take a while.) Example output:
+
+```
+{
+  "status": "OK",
+  "body": {
+    "code": "SUCCESS",
+    "msg": []
+  }
+}
+```
+    
 ### Run tests
 
 ```
