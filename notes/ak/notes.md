@@ -192,7 +192,8 @@ Example output:
 
 Find note id and post to add paragraph to the note. 
 ```
-noteid='2HYED9NTU' # check noteid in list
+noteid=$(curl --silent --cookie "${zepcookies:?}" "${zeppelinurl:?}/api/notebook"  \
+    | jq ".body[] | select(.path==\"/Users/${username:?}/examples/1. Start here\")" | jq -r '.id')
 curl --silent --request POST --cookie "${zepcookies:?}" \
      --data "@/tmp/datalocation.json"\
     "${zeppelinurl:?}/api/notebook/${noteid:?}/paragraph" \
@@ -223,7 +224,7 @@ curl --silent --request POST --cookie "${zepcookies:?}" \
   }
 }
 ```
-    
+
 ### Run tests
 
 ```
