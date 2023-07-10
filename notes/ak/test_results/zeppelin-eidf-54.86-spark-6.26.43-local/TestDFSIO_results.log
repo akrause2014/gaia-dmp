@@ -1,0 +1,8 @@
+2023-07-10 13:09:48,917 INFO fs.TestDFSIO: ----- TestDFSIO ----- : write
+2023-07-10 13:09:48,917 INFO fs.TestDFSIO:             Date & time: Mon Jul 10 13:09:48 UTC 2023
+2023-07-10 13:09:48,917 INFO fs.TestDFSIO:         Number of files: 64
+2023-07-10 13:09:48,917 INFO fs.TestDFSIO:  Total MBytes processed: 64000
+2023-07-10 13:09:48,917 INFO fs.TestDFSIO:       Throughput mb/sec: 493.58
+2023-07-10 13:09:48,917 INFO fs.TestDFSIO:  Average IO rate mb/sec: 509.7
+2023-07-10 13:09:48,917 INFO fs.TestDFSIO:   IO rate std deviation: 88.35
+2023-07-10 13:09:48,917 INFO fs.TestDFSIO:      Test exec time sec: 139.93
