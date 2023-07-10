@@ -6,3 +6,31 @@
 2023-07-10 13:09:48,917 INFO fs.TestDFSIO:  Average IO rate mb/sec: 509.7
 2023-07-10 13:09:48,917 INFO fs.TestDFSIO:   IO rate std deviation: 88.35
 2023-07-10 13:09:48,917 INFO fs.TestDFSIO:      Test exec time sec: 139.93
+
+2023-07-10 13:13:28,234 INFO fs.TestDFSIO: ----- TestDFSIO ----- : read
+2023-07-10 13:13:28,234 INFO fs.TestDFSIO:             Date & time: Mon Jul 10 13:13:28 UTC 2023
+2023-07-10 13:13:28,234 INFO fs.TestDFSIO:         Number of files: 64
+2023-07-10 13:13:28,235 INFO fs.TestDFSIO:  Total MBytes processed: 64000
+2023-07-10 13:13:28,235 INFO fs.TestDFSIO:       Throughput mb/sec: 1010.63
+2023-07-10 13:13:28,235 INFO fs.TestDFSIO:  Average IO rate mb/sec: 1023.78
+2023-07-10 13:13:28,235 INFO fs.TestDFSIO:   IO rate std deviation: 116.36
+2023-07-10 13:13:28,235 INFO fs.TestDFSIO:      Test exec time sec: 67.58
+
+2023-07-10 13:15:17,623 INFO fs.TestDFSIO: ----- TestDFSIO ----- : read
+2023-07-10 13:15:17,623 INFO fs.TestDFSIO:             Date & time: Mon Jul 10 13:15:17 UTC 2023
+2023-07-10 13:15:17,623 INFO fs.TestDFSIO:         Number of files: 64
+2023-07-10 13:15:17,623 INFO fs.TestDFSIO:  Total MBytes processed: 64000
+2023-07-10 13:15:17,623 INFO fs.TestDFSIO:       Throughput mb/sec: 994.08
+2023-07-10 13:15:17,623 INFO fs.TestDFSIO:  Average IO rate mb/sec: 999
+2023-07-10 13:15:17,623 INFO fs.TestDFSIO:   IO rate std deviation: 70.4
+2023-07-10 13:15:17,623 INFO fs.TestDFSIO:      Test exec time sec: 68.59
+
+2023-07-10 13:17:23,273 INFO fs.TestDFSIO: ----- TestDFSIO ----- : read
+2023-07-10 13:17:23,273 INFO fs.TestDFSIO:             Date & time: Mon Jul 10 13:17:23 UTC 2023
+2023-07-10 13:17:23,273 INFO fs.TestDFSIO:         Number of files: 64
+2023-07-10 13:17:23,273 INFO fs.TestDFSIO:  Total MBytes processed: 64000
+2023-07-10 13:17:23,273 INFO fs.TestDFSIO:       Throughput mb/sec: 1020.78
+2023-07-10 13:17:23,273 INFO fs.TestDFSIO:  Average IO rate mb/sec: 1024.18
+2023-07-10 13:17:23,273 INFO fs.TestDFSIO:   IO rate std deviation: 58.86
+2023-07-10 13:17:23,273 INFO fs.TestDFSIO:      Test exec time sec: 67.56
+
