@@ -33,8 +33,9 @@ podman machine ssh
 
 Personal
 ```
-CLOUD_CONFIG=/Users/amy/WFAU/clouds.yaml
-AGLAIS_CODE=${AGLAIS_HOME}/gaia-dmp
+WFAU_HOME=/Users/amy/WFAU
+CLOUD_CONFIG=${WFAU_HOME:?}/clouds.yaml
+AGLAIS_CODE=${WFAU_HOME:?}/gaia-dmp
 ```
 
 Generic
